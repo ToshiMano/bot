@@ -45,7 +45,7 @@ module.exports = (robot) ->
         msg.send ":warning: #{title}は遅延しとる。フザケンナ。\n#{info}"
 
   # cronJobの引数は、秒・分・時間・日・月・曜日の順番
-  new cronJob('0 20,30,40,50 8 * * 1-5', () ->
+  new cronJob('0 0,10,20,30,40,50 * * * 1-7', () ->
     # 京急本線(Yahoo!運行情報から選択したURLを設定する。)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # 京浜東北線
@@ -54,7 +54,7 @@ module.exports = (robot) ->
     searchTrainCron(jr_kt)
   ).start()
 
-  new cronJob('0 30,59 18 * * 1-5', () ->
+  new cronJob('0 30,59 18 * * 1-7', () ->
     # 京急本線(Yahoo!運行情報から選択したURLを設定する。)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # 京浜東北線
