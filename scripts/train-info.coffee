@@ -54,7 +54,7 @@ module.exports = (robot) ->
     searchTrainCron(jr_kt)
   ).start()
 
-  new cronJob('0 30,59 18 * * 1-7', () ->
+  new cronJob('0 30,59 18 * * 1-6', () ->
     # ‹‹}–{ü(Yahoo!‰^sî•ñ‚©‚ç‘I‘ğ‚µ‚½URL‚ğİ’è‚·‚éB)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # ‹•l“Œ–kü
