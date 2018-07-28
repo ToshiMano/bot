@@ -1,3 +1,12 @@
+# Description:
+#   “dÔ’x‰„î•ñ‚ğSlack‚É“Še‚·‚é
+#
+# Commands:
+#   hubot train < all > - Return train info
+#
+# Author:
+#   Tmano
+
 cheerio = require 'cheerio-httpcli'
 cronJob = require('cron').CronJob
 
