@@ -23,7 +23,7 @@ module.exports = (robot) ->
   robot.respond /train (.+)/i, (msg) ->
     target = msg.match[1]
     # ‹•l“Œ–kü
-    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
     # ‹‹}–{ü
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     if target == "kq"
@@ -45,11 +45,11 @@ module.exports = (robot) ->
         msg.send ":warning: #{title}‚Í’x‰„‚µ‚Æ‚éBƒtƒUƒPƒ“ƒiB\n#{info}"
 
   # cronJob‚Ìˆø”‚ÍA•bE•ªEŠÔE“úEŒE—j“ú‚Ì‡”Ô
-  new cronJob('0 0,10,20,30,40,50 * * * 1-7', () ->
+  new cronJob('0 0,10,20,30,40,50 * * * *', () ->
     # ‹‹}–{ü(Yahoo!‰^sî•ñ‚©‚ç‘I‘ğ‚µ‚½URL‚ğİ’è‚·‚éB)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # ‹•l“Œ–kü
-    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
   ).start()
@@ -58,7 +58,7 @@ module.exports = (robot) ->
     # ‹‹}–{ü(Yahoo!‰^sî•ñ‚©‚ç‘I‘ğ‚µ‚½URL‚ğİ’è‚·‚éB)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # ‹•l“Œ–kü
-    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
   ).start()
