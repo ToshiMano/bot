@@ -1,5 +1,5 @@
-# Description:
-#   �݂��肳�񂪈��A�����Ă����@�\�ł��B
+﻿# Description:
+#   みくりさんが挨拶をしてくれる機能です。
 #
 # Dependencies:
 #   None
@@ -8,10 +8,10 @@
 #   None
 #
 # Commands:
-#   hubot ���͂悤 - "���͂悤�������܂��I"�ƕԓ�
+#   hubot おはよう - "おはようございます！"と返答
 #
 # Notes:
-#   ���߂č��܂����B
+#   初めて作りました。
 #
 # Author:
 #   susuwatarin
@@ -19,5 +19,5 @@
 
 module.exports = (robot) ->
 
-  robot.respond /���͂悤/i, (msg) ->
-    msg.send "���͂悤�������܂��I"
+  robot.respond /おはよう/i, (msg) ->
+    msg.send "おはようございます！"

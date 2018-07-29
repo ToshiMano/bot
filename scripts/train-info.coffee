@@ -1,5 +1,5 @@
-# Description:
-#   “dÔ’x‰„î•ñ‚ğSlack‚É“Še‚·‚é
+ï»¿# Description:
+#   é›»è»Šé…å»¶æƒ…å ±ã‚’Slackã«æŠ•ç¨¿ã™ã‚‹
 #
 # Commands:
 #   hubot train < all > - Return train info
@@ -17,7 +17,7 @@ module.exports = (robot) ->
     baseUrl = 'https://transit.yahoo.co.jp/traininfo/gc/13/'
     cheerio.fetch baseUrl, (err, $, res) ->
       if $('.elmTblLstLine.trouble').find('a').length == 0
-        msg.send "–ŒÌ‚â’x‰„î•ñ‚Í‚ ‚è‚Ü‚¹‚ñ"
+        msg.send "äº‹æ•…ã‚„é…å»¶æƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“"
         return
       $('.elmTblLstLine.trouble a').each ->
         url = $(this).attr('href')
@@ -31,9 +31,9 @@ module.exports = (robot) ->
 
   robot.respond /train (.+)/i, (msg) ->
     target = msg.match[1]
-    # ‹•l“Œ–kü
+    # äº¬æµœæ±åŒ—ç·š
     jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
-    # ‹‹}–{ü
+    # äº¬æ€¥æœ¬ç·š
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     if target == "kq"
       searchTrain(kq, msg)
@@ -42,31 +42,31 @@ module.exports = (robot) ->
     else if target == "all"
       searchAllTrain(msg)
     else
-      msg.send "#{target}‚ÍŒŸõ‚Å‚«‚È‚µ( ?ƒÖ? ) usage: @world_conquistador [kq | jr_kt | all]"
+      msg.send "#{target}ã¯æ¤œç´¢ã§ããªã—( ?Ï‰? ) usage: @world_conquistador [kq | jr_kt | all]"
 
   searchTrain = (url, msg) ->
     cheerio.fetch url, (err, $, res) ->
       title = "#{$('h1').text()}"
       if $('.icnNormalLarge').length
-        msg.send ":ok_woman: #{title}‚Í’x‰„‚µ‚Ä‚È‚¢‚Ì‚ÅˆÀS‚µ‚ëB"
+        msg.send ":ok_woman: #{title}ã¯é…å»¶ã—ã¦ãªã„ã®ã§å®‰å¿ƒã—ã‚ã€‚"
       else
         info = $('.trouble p').text()
-        msg.send ":warning: #{title}‚Í’x‰„‚µ‚Æ‚éBƒtƒUƒPƒ“ƒiB\n#{info}"
+        msg.send ":warning: #{title}ã¯é…å»¶ã—ã¨ã‚‹ã€‚ãƒ•ã‚¶ã‚±ãƒ³ãƒŠã€‚\n#{info}"
 
-  # cronJob‚Ìˆø”‚ÍA•bE•ªEŠÔE“úEŒE—j“ú‚Ì‡”Ô
+  # cronJobã®å¼•æ•°ã¯ã€ç§’ãƒ»åˆ†ãƒ»æ™‚é–“ãƒ»æ—¥ãƒ»æœˆãƒ»æ›œæ—¥ã®é †ç•ª
   new cronJob('0 0,10,20,30,40,50 * * * *', () ->
-    # ‹‹}–{ü(Yahoo!‰^sî•ñ‚©‚ç‘I‘ğ‚µ‚½URL‚ğİ’è‚·‚éB)
+    # äº¬æ€¥æœ¬ç·š(Yahoo!é‹è¡Œæƒ…å ±ã‹ã‚‰é¸æŠã—ãŸURLã‚’è¨­å®šã™ã‚‹ã€‚)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
-    # ‹•l“Œ–kü
+    # äº¬æµœæ±åŒ—ç·š
     jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
   ).start()
 
   new cronJob('0 30,59 18 * * 1-6', () ->
-    # ‹‹}–{ü(Yahoo!‰^sî•ñ‚©‚ç‘I‘ğ‚µ‚½URL‚ğİ’è‚·‚éB)
+    # äº¬æ€¥æœ¬ç·š(Yahoo!é‹è¡Œæƒ…å ±ã‹ã‚‰é¸æŠã—ãŸURLã‚’è¨­å®šã™ã‚‹ã€‚)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
-    # ‹•l“Œ–kü
+    # äº¬æµœæ±åŒ—ç·š
     jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
@@ -74,12 +74,12 @@ module.exports = (robot) ->
 
   searchTrainCron = (url) ->
     cheerio.fetch url, (err, $, res) ->
-      #˜Hü–¼(Yahoo!‰^sî•ñ‚©‚ç³®–¼Ì‚ğæ“¾)
+      #è·¯ç·šå(Yahoo!é‹è¡Œæƒ…å ±ã‹ã‚‰æ­£å¼åç§°ã‚’å–å¾—)
       title = "#{$('h1').text()}"
       if $('.icnNormalLarge').length
-        # ’Êí‰^“]‚Ìê‡
-        #robot.send {room: "#random"}, "#{title}‚Í’x‰„‚µ‚Ä‚È‚¢‚Ì‚ÅˆÀS‚µ‚ëB"
+        # é€šå¸¸é‹è»¢ã®å ´åˆ
+        #robot.send {room: "#random"}, "#{title}ã¯é…å»¶ã—ã¦ãªã„ã®ã§å®‰å¿ƒã—ã‚ã€‚"
       else
-        # ’Êí‰^“]ˆÈŠO‚Ìê‡
+        # é€šå¸¸é‹è»¢ä»¥å¤–ã®å ´åˆ
         info = $('.trouble p').text()
-        robot.send {room: "#train_info"}, ":warning: #{title}‚Í’x‰„‚µ‚Æ‚éBƒtƒUƒPƒ“ƒiB\n#{info}"
+        robot.send {room: "#train_info"}, ":warning: #{title}ã¯é…å»¶ã—ã¨ã‚‹ã€‚ãƒ•ã‚¶ã‚±ãƒ³ãƒŠã€‚\n#{info}"
