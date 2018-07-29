@@ -14,7 +14,7 @@ module.exports = (robot) ->
 
   searchAllTrain = (msg) ->
     # send HTTP request
-    baseUrl = 'https://transit.yahoo.co.jp/traininfo/gc/13/'
+    baseUrl = 'http://transit.yahoo.co.jp/traininfo/gc/13/'
     cheerio.fetch baseUrl, (err, $, res) ->
       if $('.elmTblLstLine.trouble').find('a').length == 0
         msg.send "事故や遅延情報はありません"
@@ -32,7 +32,7 @@ module.exports = (robot) ->
   robot.respond /train (.+)/i, (msg) ->
     target = msg.match[1]
     # 京浜東北線
-    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
     # 京急本線
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     if target == "kq"
@@ -58,7 +58,7 @@ module.exports = (robot) ->
     # 京急本線(Yahoo!運行情報から選択したURLを設定する。)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # 京浜東北線
-    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
   ).start()
@@ -67,7 +67,7 @@ module.exports = (robot) ->
     # 京急本線(Yahoo!運行情報から選択したURLを設定する。)
     kq = 'https://transit.yahoo.co.jp/traininfo/detail/120/0/'
     # 京浜東北線
-    jr_kt = 'https://transit.yahoo.co.jp/traininfo/detail/22/0/'
+    jr_kt = 'http://transit.yahoo.co.jp/traininfo/detail/22/0/'
     searchTrainCron(kq)
     searchTrainCron(jr_kt)
   ).start()
