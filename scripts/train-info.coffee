@@ -8,7 +8,7 @@
 #   Tmano
 
 cheerio = require 'cheerio-httpcli'
-cronJob = require('cron').CronJob
+#cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
 
